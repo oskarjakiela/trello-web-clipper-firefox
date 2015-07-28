@@ -1,0 +1,13 @@
+{
+  "title": "Trello Clipper",
+  "name": "trelloclipper",
+  "version": "0.0.1",
+  "description": "Clip pages directly to Trello",
+  "main": "index.js",
+  "author": "Oskar Jakieła <oskar@jakiela.pl>",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT"
+}
