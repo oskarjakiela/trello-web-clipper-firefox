@@ -3,7 +3,7 @@
   "name": "trelloclipper",
   "version": "0.0.1",
   "description": "Clip pages directly to Trello",
-  "main": "index.js",
+  "main": "lib/main.js",
   "author": "Oskar Jakieła <oskar@jakiela.pl>",
   "engines": {
     "firefox": ">=38.0a1",
