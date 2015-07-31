@@ -1,0 +1,15 @@
+{
+  "title": "Trello Clipper",
+  "name": "trelloClipper",
+  "version": "0.0.1",
+  "description": "Clip pages directly to Trello",
+  "authors": [
+    "Oskar Jakieła <oskar@jakiela.pl>"
+  ],
+  "main": "data/panel/panel.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "jquery": "~2.1.0"
+  }
+}

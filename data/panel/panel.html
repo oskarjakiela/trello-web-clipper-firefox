@@ -11,17 +11,22 @@
     </style>
   </head>
 
-  <body>
-    <div class="+hidden js-clipper-login">
-      <button class="js-clipper-login-btn">Login</button>
+  <body ng-app="oj.trelloClipper">
+    <div ng-controller="MainController as main">
+      <div ng-if="main.isAuthorized() === false">
+        <button ng-click="main.authorize()">Sign in</button>
+      </div>
+
+      <div ng-if="main.isAuthorized() === true">
+        <form name="cardForm">
+          <select name="board" ng-model="main.card.board" ng-options="item.name for item in main.boards track by item.id"></select>
+          <select name="list" ng-model="main.card.list" ng-options="item.name for item in main.lists track by item.id"></select>
+          <input type="text" name="name" ng-model="main.card.name">
+          <textarea name="desc" ng-model="main.card.desc"></textarea>
+          <button ng-click="main.addCard(main.card)">Add card</button>
+        </form>
+      </div>
     </div>
 
-    <div class="+hidden js-clipper-form">
-      <select name="idBoard" class="js-clipper-form-board"></select>
-      <select name="idList" class="js-clipper-form-list"></select>
-      <input type="text" name="name" class="js-clipper-form-name">
-      <textarea name="desc" class="js-clipper-form-desc"></textarea>
-      <button class="js-clipper-form-btn">Add card</button>
-    </div>
   </body>
 </html>
