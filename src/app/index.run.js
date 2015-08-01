@@ -6,8 +6,10 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock() {
-    console.log('runBlock end');
+  function runBlock($log, $prefs, self, $tabs) {
+    self.port.on('tabs', function(message) {
+      $tabs.extend(angular.fromJson(message));
+    });
   }
 
 })();
