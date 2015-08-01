@@ -36,6 +36,18 @@
             return deferred.promise;
           }
         }
+      })
+      .state('main.error', {
+        url: 'error',
+        templateUrl: 'app/main.error/error.html',
+        controller: 'ErrorController',
+        controllerAs: 'error'
+      })
+      .state('main.success', {
+        url: 'success?cardUrl',
+        templateUrl: 'app/main.success/success.html',
+        controller: 'SuccessController',
+        controllerAs: 'success'
       });
 
     $urlRouterProvider.otherwise('/');
