@@ -1,5 +1,12 @@
 bower_components/
+.git/
 gulp/
 node_modules/
 src/
 .tmp/
+bower.json
+.bowerrc
+.editorconfig
+.gitignore
+gulpfile.js
+.jshintrc

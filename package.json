@@ -10,6 +10,15 @@
     "fennec": ">=38.0a1"
   },
   "license": "MIT",
+  "preferences": [
+    {
+      "name": "key",
+      "title": "Key",
+      "description": "",
+      "type": "string",
+      "value": "e8b6ba838382302e68e9ad90a139bc7a"
+    }
+  ],
   "devDependencies": {
     "gulp": "~3.9.0",
     "gulp-autoprefixer": "~2.3.1",
