@@ -1,2 +1,2 @@
-#Trello Clipper
-Clip pages directly to Trello
+#Trello Web Clipper
+Clip web pages directly to Trello
