@@ -17,7 +17,7 @@
         type: 'popup',
         scope: { read: true, write: true, account: false },
         success: function() {
-          $state.go('main.clipping');
+          $state.go('main', {}, { reload: true });
         }
       });
     }

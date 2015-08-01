@@ -6,7 +6,7 @@
     .service('$addon', $addon);
 
   /** @ngInject */
-  function $addon($log, self) {
+  function $addon($log, self, $state) {
     var service = this;
 
     var callbacks = {
@@ -55,6 +55,10 @@
     self.port.on('tabs', function(message) {
       service.tabs = angular.extend(service.tabs, angular.fromJson(message));
       callbacks.tabs();
+    });
+
+    self.port.on('go', function(message) {
+      $state.go(message, {}, { reload: true });
     });
   }
 })();
