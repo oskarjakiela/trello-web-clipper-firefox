@@ -1,32 +1,10 @@
-<html>
+<!doctype html>
+<html ng-app="oj.trelloClipper">
   <head>
-    <style type="text/css" media="all">
-      textarea {
-        margin: 10px;
-      }
-
-      body {
-        background-color: gray;
-      }
-    </style>
+    <meta charset="utf-8">
+    <title>Trello Clipper</title>
   </head>
-
-  <body ng-app="oj.trelloClipper">
-    <div ng-controller="MainController as main">
-      <div ng-if="main.isAuthorized() === false">
-        <button ng-click="main.authorize()">Sign in</button>
-      </div>
-
-      <div ng-if="main.isAuthorized() === true">
-        <form name="cardForm">
-          <select name="board" ng-model="main.card.board" ng-options="item.name for item in main.boards track by item.id"></select>
-          <select name="list" ng-model="main.card.list" ng-options="item.name for item in main.lists track by item.id"></select>
-          <input type="text" name="name" ng-model="main.card.name">
-          <textarea name="desc" ng-model="main.card.desc"></textarea>
-          <button ng-click="main.addCard(main.card)">Add card</button>
-        </form>
-      </div>
-    </div>
-
+  <body>
+    <div ui-view></div>
   </body>
 </html>

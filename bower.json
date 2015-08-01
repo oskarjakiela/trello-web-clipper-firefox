@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "angular": "~1.4.0",
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "angular-ui-router": "~0.2.15",
+    "trello": "https://api.trello.com/1/client.js"
   }
 }

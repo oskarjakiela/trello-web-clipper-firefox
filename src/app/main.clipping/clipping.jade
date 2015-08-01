@@ -1,0 +1,27 @@
+form(name="cardForm")
+  select(
+    name="board"
+    ng-model="clipping.card.board"
+    ng-options="item.name for item in clipping.boards track by item.id"
+  )
+
+  select(
+    name="list"
+    ng-model="clipping.card.list"
+    ng-options="item.name for item in clipping.lists track by item.id"
+  )
+
+  input(
+    type="text"
+    name="name"
+    ng-model="clipping.card.name"
+  )
+
+  textarea(
+    name="desc"
+    ng-model="clipping.card.desc"
+  )
+
+  button(
+    ng-click="clipping.add(clipping.card)"
+  ) Add card
