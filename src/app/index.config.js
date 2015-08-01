@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('oj.trelloClipper')
+    .module('oj.trelloWebClipper')
     .config(config);
 
   /** @ngInject */

@@ -4,7 +4,7 @@
   'use strict';
 
   angular
-    .module('oj.trelloClipper')
+    .module('oj.trelloWebClipper')
     .constant('self', self)
     .constant('Trello', Trello);
 
