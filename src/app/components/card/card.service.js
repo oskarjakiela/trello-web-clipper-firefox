@@ -18,11 +18,11 @@
       if (! tab) { return; }
 
       service.name = tab.title;
-      service.url = tab.url;
+      service.attachmentUrl = tab.url;
 
       service.desc = [
         '[', service.name, ']',
-        '(', service.url, ')',
+        '(', service.attachmentUrl, ')',
         '\n',
         '\n',
         'via Trello Web Clipper'

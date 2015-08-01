@@ -6,11 +6,13 @@
     .controller('SuccessController', SuccessController);
 
   /** @ngInject */
-  function SuccessController($log, $stateParams) {
+  function SuccessController($log, $card, self) {
     var vm = this;
 
-    $log.debug('$stateParams', $stateParams);
+    vm.openCard = openCard;
 
-    vm.cardUrl = $stateParams.cardUrl;
+    function openCard() {
+      self.port.emit('openCard', $card.url);
+    }
   }
 })();

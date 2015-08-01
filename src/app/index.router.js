@@ -44,7 +44,7 @@
         controllerAs: 'error'
       })
       .state('main.success', {
-        url: 'success?cardUrl',
+        url: 'success',
         templateUrl: 'app/main.success/success.html',
         controller: 'SuccessController',
         controllerAs: 'success'
