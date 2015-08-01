@@ -6,7 +6,7 @@
     .controller('ClippingController', ClippingController);
 
   /** @ngInject */
-  function ClippingController($log, boards, $card, $scope, $state, $tabs, Trello) {
+  function ClippingController($log, boards, $card, $scope, self, $state, $tabs, Trello) {
     var vm = this;
 
     $card.fromTab($tabs.activeTab);
@@ -22,6 +22,9 @@
           url: card.url
         });
 
+        self.port.emit('defaults.idBoard', card.board.id);
+        self.port.emit('defaults.idList', card.list.id);
+
         $state.go('main.success');
       }, function () {
         $state.go('main.error');
@@ -36,6 +39,20 @@
 
     $tabs.onChange(function() {
       $card.fromTab($tabs.activeTab);
+      $scope.$digest();
+    });
+
+    self.port.on('defaults', function(defaults) {
+      defaults = angular.fromJson(defaults);
+
+      $card.board = vm.boards.find(function(board) {
+        return board.id === defaults.idBoard;
+      });
+
+      $card.list = vm.lists.find(function(list) {
+        return list.id === defaults.idList;
+      });
+
       $scope.$digest();
     });
 
