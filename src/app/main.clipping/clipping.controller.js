@@ -6,33 +6,22 @@
     .controller('ClippingController', ClippingController);
 
   /** @ngInject */
-  function ClippingController($log, boards, $scope, $state, $tabs, Trello) {
+  function ClippingController($log, boards, $card, $scope, $state, $tabs, Trello) {
     var vm = this;
+
+    $card.fromTab($tabs.activeTab);
 
     vm.add = add;
     vm.boards = boards;
-    vm.card = {
-      name: $tabs.activeTab.title,
-      desc: [
-        '[', $tabs.activeTab.title, ']',
-        '(', $tabs.activeTab.url, ')',
-        '\n',
-        '\n',
-        'via Trello Web Clipper'
-      ].join(''),
-      pos: 'bottom',
-      urlSource: $tabs.activeTab.url
-    };
+    vm.card = $card;
 
     function add(card) {
-      var params = {
-        idList: card.list.id,
-        name: card.name,
-        desc: card.desc,
-        pos: card.pos
-      };
+      Trello.post('/cards', card.toApi(), function (res) {
+        Trello.post('/cards/' + res.id + '/attachments', {
+          name: card.name,
+          url: card.url
+        });
 
-      Trello.post('/cards', params, function () {
         $state.go('main.success');
       }, function () {
         $state.go('main.error');
@@ -46,7 +35,7 @@
     });
 
     $tabs.onChange(function() {
-      vm.card.name = $tabs.activeTab.title;
+      $card.fromTab($tabs.activeTab);
       $scope.$digest();
     });
 
