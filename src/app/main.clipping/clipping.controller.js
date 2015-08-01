@@ -17,9 +17,11 @@
 
     function add(card) {
       Trello.post('/cards', card.toApi(), function (res) {
+        $card.url = res.url;
+
         Trello.post('/cards/' + res.id + '/attachments', {
           name: card.name,
-          url: card.url
+          url: card.attachmentUrl
         });
 
         $addon.defaults.set({
