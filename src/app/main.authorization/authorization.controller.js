@@ -6,14 +6,14 @@
     .controller('AuthorizationController', AuthorizationController);
 
   /** @ngInject */
-  function AuthorizationController($state, Trello) {
+  function AuthorizationController($log, $addon, $state, Trello) {
     var vm = this;
 
     vm.logIn = logIn;
 
     function logIn() {
       Trello.authorize({
-        name: 'Trello Clipper',
+        name: $addon.pkg.title,
         type: 'popup',
         scope: { read: true, write: true, account: false },
         success: function() {
