@@ -6,10 +6,10 @@
     .controller('ClippingController', ClippingController);
 
   /** @ngInject */
-  function ClippingController($log, boards, $card, $scope, self, $state, $tabs, Trello) {
+  function ClippingController($log, boards, $card, $scope, $state, $addon, Trello) {
     var vm = this;
 
-    $card.fromTab($tabs.activeTab);
+    $card.fromTab($addon.tabs.activeTab);
 
     vm.add = add;
     vm.boards = boards;
@@ -22,8 +22,10 @@
           url: card.url
         });
 
-        self.port.emit('defaults.idBoard', card.board.id);
-        self.port.emit('defaults.idList', card.list.id);
+        $addon.defaults.set({
+          idBoard: card.board.id,
+          idList: card.list.id
+        });
 
         $state.go('main.success');
       }, function () {
@@ -37,20 +39,18 @@
       }
     });
 
-    $tabs.onChange(function() {
-      $card.fromTab($tabs.activeTab);
+    $addon.tabs.onChange(function () {
+      $card.fromTab($addon.tabs.activeTab);
       $scope.$digest();
     });
 
-    self.port.on('defaults', function(defaults) {
-      defaults = angular.fromJson(defaults);
-
+    $addon.defaults.onChange(function () {
       $card.board = vm.boards.find(function(board) {
-        return board.id === defaults.idBoard;
+        return board.id === $addon.defaults.idBoard;
       });
 
       $card.list = vm.lists.find(function(list) {
-        return list.id === defaults.idList;
+        return list.id === $addon.defaults.idList;
       });
 
       $scope.$digest();
