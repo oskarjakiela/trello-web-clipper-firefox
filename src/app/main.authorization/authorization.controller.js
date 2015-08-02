@@ -17,6 +17,7 @@
         type: 'popup',
         scope: { read: true, write: true, account: false },
         success: function() {
+          $addon.storage.save('token', Trello.token());
           $state.go('main', {}, { reload: true });
         }
       });

@@ -10,22 +10,20 @@
     var service = this;
 
     var callbacks = {
-      defaults: angular.noop,
+      storage: angular.noop,
       prefs: angular.noop,
       tabs: angular.noop
     };
 
     service.close = close;
 
-    service.defaults = {};
-    service.defaults.set = function(source) {
-      service.defaults = angular.extend(service.defaults, source);
-      self.port.emit('defaults.set', angular.toJson(source));
-      callbacks.defaults();
+    service.storage = {};
+    service.storage.save = function(key, value) {
+      service.storage[key] = value;
+      self.port.emit(['storage', key].join('.'), value);
     };
-
-    service.defaults.onChange = function (callback) {
-      callbacks.defaults = callback;
+    service.storage.onChange = function (callback) {
+      callbacks.storage = callback;
     };
 
     service.pkg = {};
@@ -40,9 +38,9 @@
       callbacks.tabs = callback;
     };
 
-    self.port.on('defaults', function(message) {
-      service.defaults = angular.extend(service.defaults, angular.fromJson(message));
-      callbacks.defaults();
+    self.port.on('storage', function(message) {
+      service.storage = angular.extend(service.storage, angular.fromJson(message));
+      callbacks.storage();
     });
 
     self.port.on('pkg', function(message) {
