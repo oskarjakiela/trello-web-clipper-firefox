@@ -25,7 +25,7 @@
         '(', service.attachmentUrl, ')',
         '\n',
         '\n',
-        'via Trello Web Clipper'
+        'via [Trello Web Clipper](https://addons.mozilla.org/en-US/firefox/addon/trello-web-clipper/)'
       ].join('');
     }
 
