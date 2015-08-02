@@ -15,6 +15,8 @@
       tabs: angular.noop
     };
 
+    service.close = close;
+
     service.defaults = {};
     service.defaults.set = function(source) {
       service.defaults = angular.extend(service.defaults, source);
@@ -60,5 +62,9 @@
     self.port.on('go', function(message) {
       $state.go(message, {}, { reload: true });
     });
+
+    function close() {
+      self.port.emit('close');
+    }
   }
 })();
