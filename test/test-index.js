@@ -1,3 +1,5 @@
+'use strict';
+
 var main = require("../");
 
 exports["test main"] = function(assert) {
