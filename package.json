@@ -17,6 +17,13 @@
       "description": "",
       "type": "string",
       "value": "e8b6ba838382302e68e9ad90a139bc7a"
+    },
+    {
+      "name": "desc.template",
+      "title": "Description Template",
+      "description": "",
+      "type": "string",
+      "value": "[{{ title }}]({{ url }})\n\nvia [Trello Web Clipper](https://addons.mozilla.org/en-US/firefox/addon/trello-web-clipper/)"
     }
   ],
   "devDependencies": {

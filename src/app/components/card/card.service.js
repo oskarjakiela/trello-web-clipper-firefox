@@ -6,7 +6,7 @@
     .service('$card', $card);
 
   /** @ngInject */
-  function $card() {
+  function $card($log, $addon) {
     var service = this;
 
     service.pos = 'bottom';
@@ -15,18 +15,16 @@
     service.toApi = toApi;
 
     function fromTab(tab) {
-      if (! tab) { return; }
+      if (! tab) { return service; }
 
       service.name = tab.title;
       service.attachmentUrl = tab.url;
 
-      service.desc = [
-        '[', service.name, ']',
-        '(', service.attachmentUrl, ')',
-        '\n',
-        '\n',
-        'via [Trello Web Clipper](https://addons.mozilla.org/en-US/firefox/addon/trello-web-clipper/)'
-      ].join('');
+      service.desc = $addon.prefs['desc.template']
+        .replace(/{{\s*title\s*}}/g, tab.title)
+        .replace(/{{\s*url\s*}}/g, tab.url);
+
+      return service;
     }
 
     function toApi() {
