@@ -1,0 +1,11 @@
+env:
+  browser: true
+  jasmine: true
+  mocha: true
+
+globals:
+  angular: true
+  module: true
+  inject: true
+
+extends: '../.eslintrc'
