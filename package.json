@@ -4,6 +4,13 @@
   "version": "0.0.1",
   "description": "Clip web pages directly to Trello",
   "main": "lib/main.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oskarjakiela/trello-web-clipper.git"
+  },
   "author": "Oskar Jakieła <oskar@jakiela.pl>",
   "engines": {
     "firefox": ">=38.0a1",
