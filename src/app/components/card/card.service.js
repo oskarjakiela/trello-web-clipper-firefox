@@ -9,7 +9,10 @@
   function $card($log, $addon) {
     var service = this;
 
-    service.pos = 'bottom';
+    service.position = {
+      id: 'bottom',
+      name: 'Bottom'
+    };
 
     service.fromTab = fromTab;
     service.toApi = toApi;
@@ -32,7 +35,7 @@
         idList: service.list.id,
         name: service.name,
         desc: service.desc,
-        pos: service.pos
+        pos: service.position.id
       };
     }
   }

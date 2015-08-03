@@ -14,7 +14,7 @@
         ng-options="item.name for item in clipping.boards track by item.id"
       )
 
-    .twc-select
+    .twc-select.twc-clipping__list
       label.twc-select__label List
       span.twc-select__value(
         ng-bind="clipping.card.list.name"
@@ -23,6 +23,17 @@
         name="list"
         ng-model="clipping.card.list"
         ng-options="item.name for item in clipping.lists track by item.id"
+      )
+
+    .twc-select.twc-clipping__position
+      label.twc-select__label Position
+      span.twc-select__value(
+        ng-bind="clipping.card.position.name"
+      )
+      select(
+        name="position"
+        ng-model="clipping.card.position"
+        ng-options="item.name for item in clipping.positions track by item.id"
       )
 
     label Title
