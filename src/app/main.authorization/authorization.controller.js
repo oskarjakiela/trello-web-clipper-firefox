@@ -3,20 +3,14 @@
 
   angular
     .module('oj.trelloWebClipper')
-    .value('expirations', {
-      '1hour': 'for 1 hour',
-      '1day': 'for 1 day',
-      '30days': 'for 30 days',
-      'never': 'forever'
-    })
     .controller('AuthorizationController', AuthorizationController);
 
   /** @ngInject */
-  function AuthorizationController($log, $addon, expirations, $state, Trello) {
+  function AuthorizationController($log, $addon, properties, $state, Trello) {
     var vm = this;
 
-    vm.expiration = '30days';
-    vm.expirations = expirations;
+    vm.expiration = properties.defaults.expiration;
+    vm.expirations = properties.expirations;
     vm.logIn = logIn;
 
     function logIn() {

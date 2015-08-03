@@ -19,10 +19,7 @@
     });
 
     it('should have default position', function() {
-      expect($card.position).toEqual({
-        id: 'bottom',
-        name: 'Bottom'
-      });
+      expect($card.position).toEqual('bottom');
     });
 
     describe('fromTab function', function() {

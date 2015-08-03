@@ -28,12 +28,12 @@
     .twc-select.twc-clipping__position
       label.twc-select__label Position
       span.twc-select__value(
-        ng-bind="clipping.card.position.name"
+        ng-bind="clipping.getPositionLabel(clipping.card.position)"
       )
       select(
         name="position"
         ng-model="clipping.card.position"
-        ng-options="item.name for item in clipping.positions track by item.id"
+        ng-options="value as label for (value, label) in clipping.positions"
       )
 
     label Title

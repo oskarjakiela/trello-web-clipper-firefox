@@ -6,13 +6,10 @@
     .service('$card', $card);
 
   /** @ngInject */
-  function $card($log, $addon) {
+  function $card($log, $addon, properties) {
     var service = this;
 
-    service.position = {
-      id: 'bottom',
-      name: 'Bottom'
-    };
+    service.position = properties.defaults.position;
 
     service.fromTab = fromTab;
     service.toApi = toApi;
@@ -35,7 +32,7 @@
         idList: service.list.id,
         name: service.name,
         desc: service.desc,
-        pos: service.position.id
+        pos: service.position
       };
     }
   }

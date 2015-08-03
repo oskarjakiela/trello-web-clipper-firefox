@@ -3,19 +3,10 @@
 
   angular
     .module('oj.trelloWebClipper')
-    .value('positions', [
-      {
-        id: 'top',
-        name: 'Top'
-      }, {
-        id: 'bottom',
-        name: 'Bottom'
-      }
-    ])
     .controller('ClippingController', ClippingController);
 
   /** @ngInject */
-  function ClippingController($log, $addon, boards, $card, positions, $scope, $state, Trello) {
+  function ClippingController($log, $addon, boards, $card, properties, $scope, $state, Trello) {
     var vm = this;
 
     $card.fromTab($addon.tabs.activeTab);
@@ -23,7 +14,8 @@
     vm.add = add;
     vm.boards = boards;
     vm.card = $card;
-    vm.positions = positions;
+    vm.getPositionLabel = getPositionLabel;
+    vm.positions = properties.positions;
 
     if ($addon.storage.idBoard) {
       vm.card.board = vm.boards.find(function(board) {
@@ -47,6 +39,10 @@
       }, function () {
         $state.go('main.error');
       });
+    }
+
+    function getPositionLabel(position) {
+      return properties.positions[position];
     }
 
     $scope.$watch('clipping.card.board', function () {
