@@ -1,5 +1,3 @@
-bower_components/
-data/dist/
+data/bower_components/
 node_modules/
-.tmp/
 *.xpi

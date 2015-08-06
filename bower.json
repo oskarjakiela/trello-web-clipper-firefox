@@ -1,6 +1,6 @@
 {
-  "title": "Trello Web Clipper",
-  "name": "trello-web-clipper",
+  "title": "Trello Web Clipper for Firefox",
+  "name": "trello-web-clipper-firefox",
   "version": "0.0.1",
   "description": "Clip web pages directly to Trello",
   "authors": [
@@ -9,12 +9,6 @@
   "main": "data/panel/panel.js",
   "license": "MIT",
   "dependencies": {
-    "angular": "~1.4.0",
-    "jquery": "~2.1.0",
-    "angular-ui-router": "~0.2.15",
-    "trello": "https://api.trello.com/1/client.js"
-  },
-  "devDependencies": {
-    "angular-mocks": "~1.4.0"
+    "trello-web-clipper": "0.0.1"
   }
 }
