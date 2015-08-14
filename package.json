@@ -1,6 +1,6 @@
 {
   "title": "Trello Web Clipper for Firefox",
-  "name": "trello-web-clipper-firefox",
+  "name": "trello-web-clipper",
   "version": "0.1.0",
   "description": "Clip web pages directly to Trello",
   "main": "lib/main.js",
