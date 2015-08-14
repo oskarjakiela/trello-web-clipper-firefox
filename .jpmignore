@@ -1,8 +1,11 @@
-.git/
+data/bower_components/
 node_modules/
+.git/
 .bowerrc
 .editorconfig
+.eslintrc
 .gitignore
 .jpmignore
 bower.json
 *.xpi
+!data/bower_components/trello-web-clipper
