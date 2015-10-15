@@ -1,5 +1,5 @@
 {
-  "title": "Trello Web Clipper for Firefox",
+  "title": "Web Clipper for Trello for Firefox",
   "name": "trello-web-clipper",
   "version": "0.2.2",
   "description": "Clip web pages directly to Trello",
@@ -30,7 +30,7 @@
       "title": "Description Template",
       "description": "",
       "type": "string",
-      "value": "[{{ title }}]({{ url }})\n\nvia [Trello Web Clipper](https://addons.mozilla.org/en-US/firefox/addon/trello-web-clipper/)"
+      "value": "[{{ title }}]({{ url }})\n\nvia [Web Clipper for Trello](https://addons.mozilla.org/en-US/firefox/addon/trello-web-clipper/)"
     }
   ],
   "devDependencies": {}

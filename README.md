@@ -1,5 +1,5 @@
 #Web Clipper for Trello - Firefox Addon
-Clip web pages directly to the Trello.
+Clip web pages directly to Trello.
 
 For more details, please refer to [oskarjakiela/trello-web-clipper](https://github.com/oskarjakiela/trello-web-clipper).
 
