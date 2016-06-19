@@ -9,6 +9,6 @@
   "main": "data/panel/panel.js",
   "license": "MIT",
   "dependencies": {
-    "trello-web-clipper": "0.2.7"
+    "trello-web-clipper": "0.3.1"
   }
 }
