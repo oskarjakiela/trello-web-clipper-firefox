@@ -1,7 +1,7 @@
 {
   "title": "Web Clipper for Trello",
   "name": "trello-web-clipper-firefox",
-  "version": "0.2.7",
+  "version": "0.3.1",
   "description": "Clip web pages directly to Trello",
   "authors": [
     "Oskar Jakieła <oskar@jakiela.pl>"
